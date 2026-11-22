@@ -30,7 +30,7 @@ static const double PI = 3.14159265358979323846;
 static const float INK[3] = {20, 22, 48};        // blue-black pen
 static const float PEN_OPACITY = 0.93f;
 
-// data 
+// ---------------------------------------------------------------- data ----
 struct Sample {                                  // one handwritten glyph image
     int w = 0, h = 0;
     std::vector<float> a;                        // alpha 0..1, row-major
@@ -38,7 +38,7 @@ struct Sample {                                  // one handwritten glyph image
 };
 using Library = std::map<std::string, std::vector<Sample>>;
 
-struct Glyph { std::string key; double x, y, size, adv; bool stretch; double ix0, iy0, ix1, iy1; bool topright; };
+struct Glyph { std::string key; double x, y, size, adv; bool stretch; double ix0, iy0, ix1, iy1; std::string anchor; };
 static double XSCALE = 1.0;                       // --xscale: widen/narrow ordinary glyphs
 struct Line  { double x0, y0, x1, y1, t; };
 struct Page  { int n = 0; double w = 0, h = 0; std::vector<Glyph> glyphs; std::vector<Line> lines; };
@@ -88,7 +88,7 @@ static std::vector<Page> load_items(const std::string& path) {
             pages.back().w = atof(c[2].c_str()); pages.back().h = atof(c[3].c_str());
         } else if (c[0] == "G" && c.size() >= 11 && !pages.empty()) {
             Glyph g{c[1], atof(c[2].c_str()), atof(c[3].c_str()), atof(c[4].c_str()), atof(c[5].c_str()),
-                    c[6] == "1", 0, 0, 0, 0, c.size() > 11 && c[11] == "topright"};
+                    c[6] == "1", 0, 0, 0, 0, c.size() > 11 ? c[11] : std::string("center")};
             if (g.stretch) { g.ix0 = atof(c[7].c_str()); g.iy0 = atof(c[8].c_str());
                              g.ix1 = atof(c[9].c_str()); g.iy1 = atof(c[10].c_str()); }
             pages.back().glyphs.push_back(g);
@@ -100,7 +100,7 @@ static std::vector<Page> load_items(const std::string& path) {
     return pages;
 }
 
-// drawing
+// ------------------------------------------------------------- drawing ----
 static float tap(const Sample& s, int x, int y) {          // alpha, 0 outside
     return (x < 0 || y < 0 || x >= s.w || y >= s.h) ? 0.f : s.a[(size_t)y * s.w + x];
 }
@@ -187,7 +187,7 @@ static void draw_glyph(Canvas& c, const Glyph& g, const Library& lib, double S, 
     if (g.stretch) {                                              // fit sample to measured ink box
         double W = (g.ix1 - g.ix0) * S, H = (g.iy1 - g.iy0) * S;
         double sy = H / s.h * jit;
-        if (g.topright) {                                         // radical: keep proportions, pin top-right end to the bar
+        if (g.anchor == "topright") {                                         // radical: keep proportions, pin top-right end to the bar
             stamp(c, s, s.w, 0, g.ix1 * S, g.iy0 * S, sy, sy, rot);
             return;
         }
@@ -198,7 +198,8 @@ static void draw_glyph(Canvas& c, const Glyph& g, const Library& lib, double S, 
         double adv = g.adv > 0 ? g.adv : 0.25 * g.size;           // zero-width accents: nudge right
         double cx = (g.x + adv / 2 + 0.03 * g.size * U(rng)) * S;
         double by = (g.y + 0.03 * g.size * U(rng)) * S;
-        stamp(c, s, s.w / 2.0, s.baseline, cx, by, sc * XSCALE, sc, rot);
+        double sx = g.anchor == "fitw" ? 0.96 * adv * S / s.w * jit : sc * XSCALE;   // arrows: fit width to the glyph
+        stamp(c, s, s.w / 2.0, s.baseline, cx, by, sx, sc, rot);
     }
 }
 

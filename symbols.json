@@ -6,7 +6,9 @@
   "kind: normal | tall (stretched vertically, write large) | display (big operators, write large) | accent (written above a letter; the cutter records the offset)",
   "font_map: (PDF font family without size, character) -> symbol key. Missing pairs should render a visible placeholder box.",
   "font_map extras: stretch=vertical -> stretched to ink box measured from the PDF raster; pad = horizontal search margin in pt (default 0.6); role = bracket piece merging.",
-  "font_map anchor=topright: sample's top-right ink corner is pinned to the top-right of the measured box and scaled uniformly (used for the radical sign)."
+  "font_map anchor=topright: sample's top-right ink corner is pinned to the top-right of the measured box and scaled uniformly (used for the radical sign).",
+  "batch: field on a symbol; make_sheet.py --batch NAME selects them. role=overlay: zero-width glyph (\\not slash) centered on the glyph it crosses.",
+  "font_map ink_em=[top,bottom]: glyph ink box = advance width x (top*size above origin .. bottom*size below), sample stretched to it. anchor=fitw: sample width fitted to the glyph advance (arrows). COMPOSITES in extract_items.py merge overlapping glyph pairs (=+arrowhead etc.)."
  ],
  "symbols": [
   {
@@ -61,7 +63,8 @@
    "group": "lowercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "g",
@@ -97,7 +100,8 @@
    "group": "lowercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "k",
@@ -241,7 +245,8 @@
    "group": "lowercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_a",
@@ -286,7 +291,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_f",
@@ -295,7 +301,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_g",
@@ -304,7 +311,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_h",
@@ -331,7 +339,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_k",
@@ -340,7 +349,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_l",
@@ -376,7 +386,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_p",
@@ -394,7 +405,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_r",
@@ -421,7 +433,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_u",
@@ -430,7 +443,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_v",
@@ -439,7 +453,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_w",
@@ -448,7 +463,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_x",
@@ -457,7 +473,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_y",
@@ -466,7 +483,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "cap_z",
@@ -475,7 +493,8 @@
    "group": "uppercase",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "digit_0",
@@ -899,7 +918,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "beta",
@@ -908,7 +928,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "gamma",
@@ -917,7 +938,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "delta",
@@ -926,7 +948,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "epsilon",
@@ -935,7 +958,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "theta",
@@ -944,7 +968,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "lambda",
@@ -953,7 +978,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "mu",
@@ -962,7 +988,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "rho",
@@ -971,7 +998,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "sigma",
@@ -980,7 +1008,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "tau",
@@ -989,7 +1018,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "phi",
@@ -998,7 +1028,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "omega",
@@ -1007,7 +1038,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "cap_delta",
@@ -1016,7 +1048,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "cap_omega",
@@ -1025,7 +1058,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "cap_gamma",
@@ -1034,7 +1068,8 @@
    "group": "greek (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "times",
@@ -1043,7 +1078,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "div",
@@ -1052,7 +1088,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "pm",
@@ -1061,7 +1098,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "leq",
@@ -1070,7 +1108,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "geq",
@@ -1079,7 +1118,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "neq",
@@ -1097,7 +1137,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "lt",
@@ -1106,7 +1147,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "gt",
@@ -1115,7 +1157,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "notin",
@@ -1169,7 +1212,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "exists",
@@ -1178,25 +1222,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
-  },
-  {
-   "key": "implies",
-   "tex": "\\implies",
-   "label": "⇒",
-   "group": "math (extra)",
-   "tier": 2,
-   "kind": "normal",
-   "n": 5
-  },
-  {
-   "key": "iff",
-   "tex": "\\iff",
-   "label": "⇔",
-   "group": "math (extra)",
-   "tier": 2,
-   "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "greek_logic"
   },
   {
    "key": "perp",
@@ -1214,7 +1241,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "colon",
@@ -1223,7 +1251,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "semicolon",
@@ -1232,7 +1261,8 @@
    "group": "math (extra)",
    "tier": 2,
    "kind": "normal",
-   "n": 5
+   "n": 5,
+   "batch": "basics"
   },
   {
    "key": "lbrace",
@@ -1269,6 +1299,261 @@
    "tier": 2,
    "kind": "normal",
    "n": 5
+  },
+  {
+   "key": "rightarrow2",
+   "tex": "\\Rightarrow",
+   "label": "⇒",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "leftarrow2",
+   "tex": "\\Leftarrow",
+   "label": "⇐",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "not_slash",
+   "tex": "\\not",
+   "label": "̸ (slash across =)",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "hint": "One slash like in the not-equal sign: from just below the baseline to the cap line.",
+   "batch": "basics"
+  },
+  {
+   "key": "exclam",
+   "tex": "!",
+   "label": "!",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "basics"
+  },
+  {
+   "key": "percent",
+   "tex": "\\%",
+   "label": "%",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "basics"
+  },
+  {
+   "key": "circ",
+   "tex": "^\\circ",
+   "label": "◦ (degree)",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "hint": "Small open circle, written raised, like a degree sign.",
+   "batch": "basics"
+  },
+  {
+   "key": "zeta",
+   "tex": "\\zeta",
+   "label": "ζ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "eta",
+   "tex": "\\eta",
+   "label": "η",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "kappa",
+   "tex": "\\kappa",
+   "label": "κ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "nu",
+   "tex": "\\nu",
+   "label": "ν",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "xi",
+   "tex": "\\xi",
+   "label": "ξ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "chi",
+   "tex": "\\chi",
+   "label": "χ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "psi",
+   "tex": "\\psi",
+   "label": "ψ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "cap_theta",
+   "tex": "\\Theta",
+   "label": "Θ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "cap_lambda",
+   "tex": "\\Lambda",
+   "label": "Λ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "cap_sigma",
+   "tex": "\\Sigma",
+   "label": "Σ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "cap_pi",
+   "tex": "\\Pi",
+   "label": "Π",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "cap_phi",
+   "tex": "\\Phi",
+   "label": "Φ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "cap_psi",
+   "tex": "\\Psi",
+   "label": "Ψ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "cap_xi",
+   "tex": "\\Xi",
+   "label": "Ξ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "therefore",
+   "tex": "\\therefore",
+   "label": "∴",
+   "group": "logic (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "because",
+   "tex": "\\because",
+   "label": "∵",
+   "group": "logic (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "batch": "greek_logic"
+  },
+  {
+   "key": "implies",
+   "tex": "\\implies",
+   "label": "⟹",
+   "group": "logic (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "hint": "Long double arrow pointing right, spanning the cell.",
+   "batch": "greek_logic"
+  },
+  {
+   "key": "iff",
+   "tex": "\\iff",
+   "label": "⟺",
+   "group": "logic (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "hint": "Long double arrow pointing both ways, spanning the cell.",
+   "batch": "greek_logic"
+  },
+  {
+   "key": "longrightarrow",
+   "tex": "\\longrightarrow",
+   "label": "⟶",
+   "group": "logic (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5,
+   "hint": "Long single arrow pointing right, spanning the cell.",
+   "batch": "greek_logic"
   }
  ],
  "font_map": [
@@ -2100,6 +2385,376 @@
    "char": "∏",
    "key": "prod",
    "stretch": "vertical"
+  },
+  {
+   "font": "CMMI",
+   "char": "α",
+   "key": "alpha"
+  },
+  {
+   "font": "CMMI",
+   "char": "β",
+   "key": "beta"
+  },
+  {
+   "font": "CMMI",
+   "char": "γ",
+   "key": "gamma"
+  },
+  {
+   "font": "CMMI",
+   "char": "δ",
+   "key": "delta"
+  },
+  {
+   "font": "CMMI",
+   "char": "ϵ",
+   "key": "epsilon"
+  },
+  {
+   "font": "CMMI",
+   "char": "ε",
+   "key": "epsilon"
+  },
+  {
+   "font": "CMMI",
+   "char": "θ",
+   "key": "theta"
+  },
+  {
+   "font": "CMMI",
+   "char": "λ",
+   "key": "lambda"
+  },
+  {
+   "font": "CMMI",
+   "char": "µ",
+   "key": "mu"
+  },
+  {
+   "font": "CMMI",
+   "char": "μ",
+   "key": "mu"
+  },
+  {
+   "font": "CMMI",
+   "char": "ρ",
+   "key": "rho"
+  },
+  {
+   "font": "CMMI",
+   "char": "σ",
+   "key": "sigma"
+  },
+  {
+   "font": "CMMI",
+   "char": "τ",
+   "key": "tau"
+  },
+  {
+   "font": "CMMI",
+   "char": "ϕ",
+   "key": "phi"
+  },
+  {
+   "font": "CMMI",
+   "char": "φ",
+   "key": "phi"
+  },
+  {
+   "font": "CMMI",
+   "char": "ω",
+   "key": "omega"
+  },
+  {
+   "font": "CMMI",
+   "char": "<",
+   "key": "lt"
+  },
+  {
+   "font": "CMMI",
+   "char": ">",
+   "key": "gt"
+  },
+  {
+   "font": "CMR",
+   "char": "∆",
+   "key": "cap_delta"
+  },
+  {
+   "font": "CMR",
+   "char": "Δ",
+   "key": "cap_delta"
+  },
+  {
+   "font": "CMR",
+   "char": "Ω",
+   "key": "cap_omega"
+  },
+  {
+   "font": "CMR",
+   "char": "Ω",
+   "key": "cap_omega"
+  },
+  {
+   "font": "CMR",
+   "char": "Γ",
+   "key": "cap_gamma"
+  },
+  {
+   "font": "CMR",
+   "char": "!",
+   "key": "exclam"
+  },
+  {
+   "font": "CMR",
+   "char": "%",
+   "key": "percent"
+  },
+  {
+   "font": "CMR",
+   "char": "ˆ",
+   "key": "hat",
+   "role": "accent"
+  },
+  {
+   "font": "CMR",
+   "char": "˙",
+   "key": "dot_accent",
+   "role": "accent"
+  },
+  {
+   "font": "CMSY",
+   "char": "±",
+   "key": "pm"
+  },
+  {
+   "font": "CMSY",
+   "char": "÷",
+   "key": "div"
+  },
+  {
+   "font": "CMSY",
+   "char": "≈",
+   "key": "approx"
+  },
+  {
+   "font": "CMSY",
+   "char": "⊂",
+   "key": "subset"
+  },
+  {
+   "font": "CMSY",
+   "char": "⊆",
+   "key": "subseteq"
+  },
+  {
+   "font": "CMSY",
+   "char": "∪",
+   "key": "cup"
+  },
+  {
+   "font": "CMSY",
+   "char": "∩",
+   "key": "cap"
+  },
+  {
+   "font": "CMSY",
+   "char": "∀",
+   "key": "forall"
+  },
+  {
+   "font": "CMSY",
+   "char": "∃",
+   "key": "exists"
+  },
+  {
+   "font": "CMSY",
+   "char": "⊥",
+   "key": "perp"
+  },
+  {
+   "font": "CMSY",
+   "char": "|",
+   "key": "vbar"
+  },
+  {
+   "font": "CMSY",
+   "char": "∣",
+   "key": "vbar"
+  },
+  {
+   "font": "CMSY",
+   "char": "{",
+   "key": "lbrace"
+  },
+  {
+   "font": "CMSY",
+   "char": "}",
+   "key": "rbrace"
+  },
+  {
+   "font": "CMSY",
+   "char": "⟨",
+   "key": "langle"
+  },
+  {
+   "font": "CMSY",
+   "char": "⟩",
+   "key": "rangle"
+  },
+  {
+   "font": "CMSY",
+   "char": "⇒",
+   "key": "rightarrow2",
+   "anchor": "fitw"
+  },
+  {
+   "font": "CMSY",
+   "char": "⇐",
+   "key": "leftarrow2",
+   "anchor": "fitw"
+  },
+  {
+   "font": "CMSY",
+   "char": "◦",
+   "key": "circ"
+  },
+  {
+   "font": "CMSY",
+   "char": "∘",
+   "key": "circ"
+  },
+  {
+   "font": "CMSY",
+   "char": "∉",
+   "key": "notin"
+  },
+  {
+   "font": "CMSY",
+   "char": "̸",
+   "key": "not_slash",
+   "role": "overlay"
+  },
+  {
+   "font": "MSBM",
+   "char": "N",
+   "key": "bb_n"
+  },
+  {
+   "font": "MSBM",
+   "char": "Z",
+   "key": "bb_z"
+  },
+  {
+   "font": "MSBM",
+   "char": "Q",
+   "key": "bb_q"
+  },
+  {
+   "font": "MSBM",
+   "char": "C",
+   "key": "bb_c"
+  },
+  {
+   "font": "CMMI",
+   "char": "ζ",
+   "key": "zeta"
+  },
+  {
+   "font": "CMMI",
+   "char": "η",
+   "key": "eta"
+  },
+  {
+   "font": "CMMI",
+   "char": "κ",
+   "key": "kappa"
+  },
+  {
+   "font": "CMMI",
+   "char": "ν",
+   "key": "nu"
+  },
+  {
+   "font": "CMMI",
+   "char": "ξ",
+   "key": "xi"
+  },
+  {
+   "font": "CMMI",
+   "char": "χ",
+   "key": "chi"
+  },
+  {
+   "font": "CMMI",
+   "char": "ψ",
+   "key": "psi"
+  },
+  {
+   "font": "CMMI",
+   "char": "ϑ",
+   "key": "theta"
+  },
+  {
+   "font": "CMR",
+   "char": "Θ",
+   "key": "cap_theta"
+  },
+  {
+   "font": "CMR",
+   "char": "Λ",
+   "key": "cap_lambda"
+  },
+  {
+   "font": "CMR",
+   "char": "Σ",
+   "key": "cap_sigma"
+  },
+  {
+   "font": "CMR",
+   "char": "Π",
+   "key": "cap_pi"
+  },
+  {
+   "font": "CMR",
+   "char": "Φ",
+   "key": "cap_phi"
+  },
+  {
+   "font": "CMR",
+   "char": "Ψ",
+   "key": "cap_psi"
+  },
+  {
+   "font": "CMR",
+   "char": "Ξ",
+   "key": "cap_xi"
+  },
+  {
+   "font": "MSAM",
+   "char": "∴",
+   "key": "therefore"
+  },
+  {
+   "font": "MSAM",
+   "char": "∵",
+   "key": "because"
+  },
+  {
+   "font": "CMSY",
+   "char": "′",
+   "key": "prime",
+   "ink_em": [
+    0.56,
+    0
+   ]
+  },
+  {
+   "font": "CMSY",
+   "char": "⇔",
+   "key": "iff",
+   "anchor": "fitw"
   }
  ]
 }

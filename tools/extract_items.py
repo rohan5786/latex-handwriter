@@ -63,12 +63,37 @@ def page_lines(page):
     return out
 
 
+# Overlapping glyph pairs that TeX builds long arrows from -> one glyph.
+COMPOSITES = [(("CMR", "="), ("CMSY", "\u21d2"), "implies"),
+              (("CMSY", "\u21d0"), ("CMSY", "\u21d2"), "iff"),
+              (("CMSY", "\u2212"), ("CMSY", "\u2192"), "longrightarrow")]
+
+
+def merge_composites(glyphs, fams):
+    out, i = [], 0
+    while i < len(glyphs):
+        g = glyphs[i]
+        nx = glyphs[i + 1] if i + 1 < len(glyphs) else None
+        hit = None
+        if nx and abs(nx["y"] - g["y"]) < 0.5 and -3.0 <= nx["x"] - (g["x"] + g["adv"]) <= 0.5:
+            for a, b, key in COMPOSITES:
+                if fams[id(g)] == a and fams[id(nx)] == b:
+                    hit = key
+        if hit:
+            g = dict(g, key=hit, adv=nx["x"] + nx["adv"] - g["x"], anchor="fitw", stretch=0, ink=None, role=None)
+            fams[id(g)] = ("MERGED", hit)
+            i += 1
+        out.append(g)
+        i += 1
+    return out
+
+
 def extract_page(page, fmap, dpi, missing):
     ppp = dpi / 72
     pix = page.get_pixmap(dpi=dpi, colorspace=pymupdf.csGRAY)
     img = np.frombuffer(pix.samples, np.uint8).reshape(pix.h, pix.w)
 
-    glyphs = []
+    glyphs, fams = [], {}
     for b in page.get_text("rawdict")["blocks"]:
         for l in b.get("lines", []):
             for s in l["spans"]:
@@ -88,12 +113,19 @@ def extract_page(page, fmap, dpi, missing):
                     else:
                         g["key"], g["role"] = m["key"], m.get("role")
                         g["anchor"] = m.get("anchor", "center")
-                        if m.get("stretch") == "vertical":
+                        if m.get("ink_em"):                       # known ink box relative to the origin
+                            top, bot = m["ink_em"]
+                            g["stretch"] = 1
+                            g["ink"] = (g["x"], g["y"] - top * s["size"], g["x"] + max(g["adv"], 0.3 * s["size"]), g["y"] + bot * s["size"])
+                        elif m.get("stretch") == "vertical":
                             g["stretch"] = 1
                             g["ink"] = ink_box(img, ppp, x0, x1, g["y"], 3.5 * s["size"], m.get("pad", 0.6))
                             if g["ink"] is None:
                                 g["stretch"] = 0
                     glyphs.append(g)
+                    fams[id(g)] = (fam, c)
+
+    glyphs = merge_composites(glyphs, fams)
 
     # Zero-width accents (\vec) share an origin with the letter they sit on: borrow its width.
     for i, g in enumerate(glyphs):
@@ -102,6 +134,13 @@ def extract_page(page, fmap, dpi, missing):
                 if 0 <= j < len(glyphs) and abs(glyphs[j]["x"] - g["x"]) < 0.5 and glyphs[j]["adv"] > 0:
                     g["adv"] = glyphs[j]["adv"]
                     break
+
+    # Overlays (\not slash): zero width, drawn just before the glyph they cross: center on that glyph.
+    for i, g in enumerate(glyphs):
+        if g["role"] == "overlay" and i + 1 < len(glyphs):
+            nx = glyphs[i + 1]
+            if nx["adv"] > 0 and abs(nx["x"] - g["x"]) < 8:
+                g["x"], g["adv"] = nx["x"], nx["adv"]
 
     lines = page_lines(page)
 

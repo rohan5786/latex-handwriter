@@ -106,6 +106,7 @@ def main():
     ap.add_argument("--symbols", default="symbols.json")
     ap.add_argument("--tier", default="1", help="1, 2 or all")
     ap.add_argument("--only", help="comma-separated symbol keys (overrides --tier)")
+    ap.add_argument("--batch", help="select symbols whose \"batch\" field in symbols.json matches (overrides --tier)")
     ap.add_argument("--n", type=int, help="override samples per symbol")
     ap.add_argument("-o", "--out", default="sheets/sheet", help="output path without extension")
     ap.add_argument("--png-dpi", type=int, default=200, help="also write <out>-p1.png ... (for OneNote etc.); 0 = skip")
@@ -115,6 +116,8 @@ def main():
     if a.only:
         want = a.only.split(",")
         syms = [s for s in syms if s["key"] in want]
+    elif a.batch:
+        syms = [s for s in syms if s.get("batch") == a.batch]
     elif a.tier != "all":
         syms = [s for s in syms if s["tier"] == int(a.tier)]
     if a.n:

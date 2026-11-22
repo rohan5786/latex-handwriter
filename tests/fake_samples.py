@@ -16,6 +16,8 @@ for m in sym["font_map"]:
     if not m.get("role", "").startswith("piece"):
         char.setdefault(m["key"], m["char"])
 char["vec"], char["vbar_tall"] = "\u2192", "|"
+char.update(implies="\u27f9", iff="\u27fa", longrightarrow="\u27f6")
+SANS = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 EM, BASE = 100, 170
 rng = random.Random(0)
 for key, ch in char.items():
@@ -25,10 +27,12 @@ for key, ch in char.items():
         size = EM * (2.4 if kind[key] in ("tall", "display") else 0.55 if key == "vec" else 1)
         base = BASE - (85 if key == "vec" else 0)
         im = Image.new("L", (360, 360), 0)
-        if key == "sqrt":
+        if key == "not_slash":
+            ImageDraw.Draw(im).line([(90, base + 20), (130, base - 85)], fill=255, width=6)
+        elif key == "sqrt":
             ImageDraw.Draw(im).line([(60, base - 20), (75, base - 30), (95, base + 20), (150, base - 90)], fill=255, width=7, joint="curve")
         else:
-            ImageDraw.Draw(im).text((60, base), ch, font=ImageFont.truetype(FONT, int(size)), anchor="ls", fill=255)
+            ImageDraw.Draw(im).text((60, base), ch, font=ImageFont.truetype(SANS if key in ("implies","iff","longrightarrow","rightarrow2","leftarrow2") else FONT, int(size)), anchor="ls", fill=255)
         im = im.rotate(rng.uniform(-4, 4), resample=Image.BICUBIC, center=(180, base))
         l, t, r, b = im.getbbox() or (0, 0, 1, 1)
         l, t, r, b = max(l - 2, 0), max(t - 2, 0), r + 2, b + 2
