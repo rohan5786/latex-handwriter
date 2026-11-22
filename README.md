@@ -2,8 +2,6 @@
 Re-draw a LaTeX-compiled PDF into your own handwriting.
 Process map:
     paper.pdf --extract_items.py--> items.tsv --build/render (C++)--> page PNGs --> out.pdf
-                       ^                              ^
-                 symbols.json                    samples/<key>/NNN.png
 
 ## Setup
     pip install -r requirements.txt
@@ -16,16 +14,12 @@ See tools/README.md. `symbols.json` lists every symbol and how PDF fonts map to 
 
 ## 2. Handwrite a PDF
     tools/handwrite.sh paper.pdf out.pdf [samples_dir] [seed]
-Symbols with no samples are drawn as **black boxes**, and listed on stderr: that list is your to-write list.
+Symbols with no samples are drawn as black boxes --- looks identical to `$\blackbox$` in LaTeX --- and listed on stderr. That list is all of your to-be sampled characters.
 Different seeds give different "takes". Extra renderer flags: `RENDER_ARGS="--xscale 1.1" tools/handwrite.sh ...`
 (`--xscale` widens ordinary glyphs: raise it if letters look gappy, lower it if they collide).
 
-`index_samples.py` (run automatically) calibrates glyph size from how you actually write digits, capitals and
-lowercase, and prints a report: read it to see how your handwriting compares to the sheet's guide lines.
-
-## Try it before you have samples
-    python tests/fake_samples.py samples_fake      # font-based stand-ins, not handwriting
-    tools/handwrite.sh paper.pdf out.pdf samples_fake
+`index_samples.py` (run automatically) calibrates glyph size from how you write digits, capitals and
+lowercase and prints a report. Read it to see how your handwriting compares to the sheet's guide lines.
 
 ## Tests
     python tests/roundtrip.py                      # sheet -> photo -> cut
