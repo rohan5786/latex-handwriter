@@ -1,0 +1,2105 @@
+{
+ "version": 1,
+ "notes": [
+  "Keys are ASCII and lowercase only: Windows-mounted drives are case-insensitive, so uppercase letters use a cap_ prefix.",
+  "tier 1 = appears in sampling.pdf; tier 2 = extras you will likely need. n = number of samples to write.",
+  "kind: normal | tall (stretched vertically, write large) | display (big operators, write large) | accent (written above a letter; the cutter records the offset)",
+  "font_map: (PDF font family without size, character) -> symbol key. Missing pairs should render a visible placeholder box.",
+  "font_map extras: stretch=vertical -> stretched to ink box measured from the PDF raster; pad = horizontal search margin in pt (default 0.6); role = bracket piece merging.",
+  "font_map anchor=topright: sample's top-right ink corner is pinned to the top-right of the measured box and scaled uniformly (used for the radical sign)."
+ ],
+ "symbols": [
+  {
+   "key": "a",
+   "tex": "a",
+   "label": "a",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "b",
+   "tex": "b",
+   "label": "b",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "c",
+   "tex": "c",
+   "label": "c",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "d",
+   "tex": "d",
+   "label": "d",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "e",
+   "tex": "e",
+   "label": "e",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "f",
+   "tex": "f",
+   "label": "f",
+   "group": "lowercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "g",
+   "tex": "g",
+   "label": "g",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "h",
+   "tex": "h",
+   "label": "h",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "i",
+   "tex": "i",
+   "label": "i",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "j",
+   "tex": "j",
+   "label": "j",
+   "group": "lowercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "k",
+   "tex": "k",
+   "label": "k",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "l",
+   "tex": "l",
+   "label": "l",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "m",
+   "tex": "m",
+   "label": "m",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "n",
+   "tex": "n",
+   "label": "n",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "o",
+   "tex": "o",
+   "label": "o",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "p",
+   "tex": "p",
+   "label": "p",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "q",
+   "tex": "q",
+   "label": "q",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "r",
+   "tex": "r",
+   "label": "r",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "s",
+   "tex": "s",
+   "label": "s",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "t",
+   "tex": "t",
+   "label": "t",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "u",
+   "tex": "u",
+   "label": "u",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "v",
+   "tex": "v",
+   "label": "v",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "w",
+   "tex": "w",
+   "label": "w",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "x",
+   "tex": "x",
+   "label": "x",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "y",
+   "tex": "y",
+   "label": "y",
+   "group": "lowercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "z",
+   "tex": "z",
+   "label": "z",
+   "group": "lowercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_a",
+   "tex": "A",
+   "label": "A",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_b",
+   "tex": "B",
+   "label": "B",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_c",
+   "tex": "C",
+   "label": "C",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_d",
+   "tex": "D",
+   "label": "D",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_e",
+   "tex": "E",
+   "label": "E",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_f",
+   "tex": "F",
+   "label": "F",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_g",
+   "tex": "G",
+   "label": "G",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_h",
+   "tex": "H",
+   "label": "H",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_i",
+   "tex": "I",
+   "label": "I",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_j",
+   "tex": "J",
+   "label": "J",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_k",
+   "tex": "K",
+   "label": "K",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_l",
+   "tex": "L",
+   "label": "L",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_m",
+   "tex": "M",
+   "label": "M",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_n",
+   "tex": "N",
+   "label": "N",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_o",
+   "tex": "O",
+   "label": "O",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_p",
+   "tex": "P",
+   "label": "P",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_q",
+   "tex": "Q",
+   "label": "Q",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_r",
+   "tex": "R",
+   "label": "R",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_s",
+   "tex": "S",
+   "label": "S",
+   "group": "uppercase",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cap_t",
+   "tex": "T",
+   "label": "T",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_u",
+   "tex": "U",
+   "label": "U",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_v",
+   "tex": "V",
+   "label": "V",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_w",
+   "tex": "W",
+   "label": "W",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_x",
+   "tex": "X",
+   "label": "X",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_y",
+   "tex": "Y",
+   "label": "Y",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_z",
+   "tex": "Z",
+   "label": "Z",
+   "group": "uppercase",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "digit_0",
+   "tex": "0",
+   "label": "0",
+   "group": "digits",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "digit_1",
+   "tex": "1",
+   "label": "1",
+   "group": "digits",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "digit_2",
+   "tex": "2",
+   "label": "2",
+   "group": "digits",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "digit_3",
+   "tex": "3",
+   "label": "3",
+   "group": "digits",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "digit_4",
+   "tex": "4",
+   "label": "4",
+   "group": "digits",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "digit_5",
+   "tex": "5",
+   "label": "5",
+   "group": "digits",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "digit_6",
+   "tex": "6",
+   "label": "6",
+   "group": "digits",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "digit_7",
+   "tex": "7",
+   "label": "7",
+   "group": "digits",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "digit_8",
+   "tex": "8",
+   "label": "8",
+   "group": "digits",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "digit_9",
+   "tex": "9",
+   "label": "9",
+   "group": "digits",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "plus",
+   "tex": "+",
+   "label": "+",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "minus",
+   "tex": "-",
+   "label": "−",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "equals",
+   "tex": "=",
+   "label": "=",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "comma",
+   "tex": ",",
+   "label": ",",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "period",
+   "tex": ".",
+   "label": ".",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "slash",
+   "tex": "/",
+   "label": "/",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "lparen",
+   "tex": "(",
+   "label": "(",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "rparen",
+   "tex": ")",
+   "label": ")",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "lbracket",
+   "tex": "[",
+   "label": "[",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "rbracket",
+   "tex": "]",
+   "label": "]",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "prime",
+   "tex": "'",
+   "label": "’",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "cdot",
+   "tex": "\\cdot",
+   "label": "·",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "to",
+   "tex": "\\to",
+   "label": "→",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "in",
+   "tex": "\\in",
+   "label": "∈",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "infty",
+   "tex": "\\infty",
+   "label": "∞",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "partial",
+   "tex": "\\partial",
+   "label": "∂",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "pi",
+   "tex": "\\pi",
+   "label": "π",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "sqrt",
+   "tex": "\\sqrt",
+   "label": "√",
+   "group": "core symbols",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8,
+   "hint": "ONLY the check mark: no overline. Top-right end = where the bar starts."
+  },
+  {
+   "key": "bb_r",
+   "tex": "\\mathbb{R}",
+   "label": "ℝ",
+   "group": "blackboard",
+   "tier": 1,
+   "kind": "normal",
+   "n": 8
+  },
+  {
+   "key": "bb_n",
+   "tex": "\\mathbb{N}",
+   "label": "ℕ",
+   "group": "blackboard",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "bb_z",
+   "tex": "\\mathbb{Z}",
+   "label": "ℤ",
+   "group": "blackboard",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "bb_q",
+   "tex": "\\mathbb{Q}",
+   "label": "ℚ",
+   "group": "blackboard",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "bb_c",
+   "tex": "\\mathbb{C}",
+   "label": "ℂ",
+   "group": "blackboard",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "sum",
+   "tex": "\\sum",
+   "label": "∑",
+   "group": "big operators",
+   "tier": 1,
+   "kind": "display",
+   "n": 4
+  },
+  {
+   "key": "prod",
+   "tex": "\\prod",
+   "label": "∏",
+   "group": "big operators",
+   "tier": 1,
+   "kind": "display",
+   "n": 4
+  },
+  {
+   "key": "int",
+   "tex": "\\int",
+   "label": "∫",
+   "group": "big operators",
+   "tier": 1,
+   "kind": "display",
+   "n": 4
+  },
+  {
+   "key": "lparen_tall",
+   "tex": "\\left(",
+   "label": "( tall",
+   "group": "tall delimiters",
+   "tier": 1,
+   "kind": "tall",
+   "n": 4
+  },
+  {
+   "key": "rparen_tall",
+   "tex": "\\right)",
+   "label": ") tall",
+   "group": "tall delimiters",
+   "tier": 1,
+   "kind": "tall",
+   "n": 4
+  },
+  {
+   "key": "lbracket_tall",
+   "tex": "\\left[",
+   "label": "[ tall",
+   "group": "tall delimiters",
+   "tier": 1,
+   "kind": "tall",
+   "n": 4
+  },
+  {
+   "key": "rbracket_tall",
+   "tex": "\\right]",
+   "label": "] tall",
+   "group": "tall delimiters",
+   "tier": 1,
+   "kind": "tall",
+   "n": 4
+  },
+  {
+   "key": "lbrace_tall",
+   "tex": "\\left\\{",
+   "label": "{ tall",
+   "group": "tall delimiters",
+   "tier": 1,
+   "kind": "tall",
+   "n": 4
+  },
+  {
+   "key": "rbrace_tall",
+   "tex": "\\right\\}",
+   "label": "} tall",
+   "group": "tall delimiters",
+   "tier": 1,
+   "kind": "tall",
+   "n": 4
+  },
+  {
+   "key": "vbar_tall",
+   "tex": "\\right|",
+   "label": "| tall",
+   "group": "tall delimiters",
+   "tier": 1,
+   "kind": "tall",
+   "n": 4
+  },
+  {
+   "key": "vec",
+   "tex": "\\vec",
+   "label": "⃗ (arrow over a letter)",
+   "group": "accents",
+   "tier": 1,
+   "kind": "accent",
+   "n": 6
+  },
+  {
+   "key": "hat",
+   "tex": "\\hat",
+   "label": "^ (over a letter)",
+   "group": "accents",
+   "tier": 2,
+   "kind": "accent",
+   "n": 4
+  },
+  {
+   "key": "dot_accent",
+   "tex": "\\dot",
+   "label": "˙ (over a letter)",
+   "group": "accents",
+   "tier": 2,
+   "kind": "accent",
+   "n": 4
+  },
+  {
+   "key": "alpha",
+   "tex": "\\alpha",
+   "label": "α",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "beta",
+   "tex": "\\beta",
+   "label": "β",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "gamma",
+   "tex": "\\gamma",
+   "label": "γ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "delta",
+   "tex": "\\delta",
+   "label": "δ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "epsilon",
+   "tex": "\\epsilon",
+   "label": "ε",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "theta",
+   "tex": "\\theta",
+   "label": "θ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "lambda",
+   "tex": "\\lambda",
+   "label": "λ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "mu",
+   "tex": "\\mu",
+   "label": "μ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "rho",
+   "tex": "\\rho",
+   "label": "ρ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "sigma",
+   "tex": "\\sigma",
+   "label": "σ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "tau",
+   "tex": "\\tau",
+   "label": "τ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "phi",
+   "tex": "\\phi",
+   "label": "φ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "omega",
+   "tex": "\\omega",
+   "label": "ω",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_delta",
+   "tex": "\\Delta",
+   "label": "Δ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_omega",
+   "tex": "\\Omega",
+   "label": "Ω",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap_gamma",
+   "tex": "\\Gamma",
+   "label": "Γ",
+   "group": "greek (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "times",
+   "tex": "\\times",
+   "label": "×",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "div",
+   "tex": "\\div",
+   "label": "÷",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "pm",
+   "tex": "\\pm",
+   "label": "±",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "leq",
+   "tex": "\\leq",
+   "label": "≤",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "geq",
+   "tex": "\\geq",
+   "label": "≥",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "neq",
+   "tex": "\\neq",
+   "label": "≠",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "approx",
+   "tex": "\\approx",
+   "label": "≈",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "lt",
+   "tex": "<",
+   "label": "<",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "gt",
+   "tex": ">",
+   "label": ">",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "notin",
+   "tex": "\\notin",
+   "label": "∉",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "subset",
+   "tex": "\\subset",
+   "label": "⊂",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "subseteq",
+   "tex": "\\subseteq",
+   "label": "⊆",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cup",
+   "tex": "\\cup",
+   "label": "∪",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "cap",
+   "tex": "\\cap",
+   "label": "∩",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "forall",
+   "tex": "\\forall",
+   "label": "∀",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "exists",
+   "tex": "\\exists",
+   "label": "∃",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "implies",
+   "tex": "\\implies",
+   "label": "⇒",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "iff",
+   "tex": "\\iff",
+   "label": "⇔",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "perp",
+   "tex": "\\perp",
+   "label": "⊥",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "vbar",
+   "tex": "|",
+   "label": "|",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "colon",
+   "tex": ":",
+   "label": ":",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "semicolon",
+   "tex": ";",
+   "label": ";",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "lbrace",
+   "tex": "\\{",
+   "label": "{",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "rbrace",
+   "tex": "\\}",
+   "label": "}",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "langle",
+   "tex": "\\langle",
+   "label": "⟨",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  },
+  {
+   "key": "rangle",
+   "tex": "\\rangle",
+   "label": "⟩",
+   "group": "math (extra)",
+   "tier": 2,
+   "kind": "normal",
+   "n": 5
+  }
+ ],
+ "font_map": [
+  {
+   "font": "CMR",
+   "char": "a",
+   "key": "a"
+  },
+  {
+   "font": "CMMI",
+   "char": "a",
+   "key": "a"
+  },
+  {
+   "font": "CMR",
+   "char": "b",
+   "key": "b"
+  },
+  {
+   "font": "CMMI",
+   "char": "b",
+   "key": "b"
+  },
+  {
+   "font": "CMR",
+   "char": "c",
+   "key": "c"
+  },
+  {
+   "font": "CMMI",
+   "char": "c",
+   "key": "c"
+  },
+  {
+   "font": "CMR",
+   "char": "d",
+   "key": "d"
+  },
+  {
+   "font": "CMMI",
+   "char": "d",
+   "key": "d"
+  },
+  {
+   "font": "CMR",
+   "char": "e",
+   "key": "e"
+  },
+  {
+   "font": "CMMI",
+   "char": "e",
+   "key": "e"
+  },
+  {
+   "font": "CMR",
+   "char": "f",
+   "key": "f"
+  },
+  {
+   "font": "CMMI",
+   "char": "f",
+   "key": "f"
+  },
+  {
+   "font": "CMR",
+   "char": "g",
+   "key": "g"
+  },
+  {
+   "font": "CMMI",
+   "char": "g",
+   "key": "g"
+  },
+  {
+   "font": "CMR",
+   "char": "h",
+   "key": "h"
+  },
+  {
+   "font": "CMMI",
+   "char": "h",
+   "key": "h"
+  },
+  {
+   "font": "CMR",
+   "char": "i",
+   "key": "i"
+  },
+  {
+   "font": "CMMI",
+   "char": "i",
+   "key": "i"
+  },
+  {
+   "font": "CMR",
+   "char": "j",
+   "key": "j"
+  },
+  {
+   "font": "CMMI",
+   "char": "j",
+   "key": "j"
+  },
+  {
+   "font": "CMR",
+   "char": "k",
+   "key": "k"
+  },
+  {
+   "font": "CMMI",
+   "char": "k",
+   "key": "k"
+  },
+  {
+   "font": "CMR",
+   "char": "l",
+   "key": "l"
+  },
+  {
+   "font": "CMMI",
+   "char": "l",
+   "key": "l"
+  },
+  {
+   "font": "CMR",
+   "char": "m",
+   "key": "m"
+  },
+  {
+   "font": "CMMI",
+   "char": "m",
+   "key": "m"
+  },
+  {
+   "font": "CMR",
+   "char": "n",
+   "key": "n"
+  },
+  {
+   "font": "CMMI",
+   "char": "n",
+   "key": "n"
+  },
+  {
+   "font": "CMR",
+   "char": "o",
+   "key": "o"
+  },
+  {
+   "font": "CMMI",
+   "char": "o",
+   "key": "o"
+  },
+  {
+   "font": "CMR",
+   "char": "p",
+   "key": "p"
+  },
+  {
+   "font": "CMMI",
+   "char": "p",
+   "key": "p"
+  },
+  {
+   "font": "CMR",
+   "char": "q",
+   "key": "q"
+  },
+  {
+   "font": "CMMI",
+   "char": "q",
+   "key": "q"
+  },
+  {
+   "font": "CMR",
+   "char": "r",
+   "key": "r"
+  },
+  {
+   "font": "CMMI",
+   "char": "r",
+   "key": "r"
+  },
+  {
+   "font": "CMR",
+   "char": "s",
+   "key": "s"
+  },
+  {
+   "font": "CMMI",
+   "char": "s",
+   "key": "s"
+  },
+  {
+   "font": "CMR",
+   "char": "t",
+   "key": "t"
+  },
+  {
+   "font": "CMMI",
+   "char": "t",
+   "key": "t"
+  },
+  {
+   "font": "CMR",
+   "char": "u",
+   "key": "u"
+  },
+  {
+   "font": "CMMI",
+   "char": "u",
+   "key": "u"
+  },
+  {
+   "font": "CMR",
+   "char": "v",
+   "key": "v"
+  },
+  {
+   "font": "CMMI",
+   "char": "v",
+   "key": "v"
+  },
+  {
+   "font": "CMR",
+   "char": "w",
+   "key": "w"
+  },
+  {
+   "font": "CMMI",
+   "char": "w",
+   "key": "w"
+  },
+  {
+   "font": "CMR",
+   "char": "x",
+   "key": "x"
+  },
+  {
+   "font": "CMMI",
+   "char": "x",
+   "key": "x"
+  },
+  {
+   "font": "CMR",
+   "char": "y",
+   "key": "y"
+  },
+  {
+   "font": "CMMI",
+   "char": "y",
+   "key": "y"
+  },
+  {
+   "font": "CMR",
+   "char": "z",
+   "key": "z"
+  },
+  {
+   "font": "CMMI",
+   "char": "z",
+   "key": "z"
+  },
+  {
+   "font": "CMR",
+   "char": "A",
+   "key": "cap_a"
+  },
+  {
+   "font": "CMMI",
+   "char": "A",
+   "key": "cap_a"
+  },
+  {
+   "font": "CMR",
+   "char": "B",
+   "key": "cap_b"
+  },
+  {
+   "font": "CMMI",
+   "char": "B",
+   "key": "cap_b"
+  },
+  {
+   "font": "CMR",
+   "char": "C",
+   "key": "cap_c"
+  },
+  {
+   "font": "CMMI",
+   "char": "C",
+   "key": "cap_c"
+  },
+  {
+   "font": "CMR",
+   "char": "D",
+   "key": "cap_d"
+  },
+  {
+   "font": "CMMI",
+   "char": "D",
+   "key": "cap_d"
+  },
+  {
+   "font": "CMR",
+   "char": "E",
+   "key": "cap_e"
+  },
+  {
+   "font": "CMMI",
+   "char": "E",
+   "key": "cap_e"
+  },
+  {
+   "font": "CMR",
+   "char": "F",
+   "key": "cap_f"
+  },
+  {
+   "font": "CMMI",
+   "char": "F",
+   "key": "cap_f"
+  },
+  {
+   "font": "CMR",
+   "char": "G",
+   "key": "cap_g"
+  },
+  {
+   "font": "CMMI",
+   "char": "G",
+   "key": "cap_g"
+  },
+  {
+   "font": "CMR",
+   "char": "H",
+   "key": "cap_h"
+  },
+  {
+   "font": "CMMI",
+   "char": "H",
+   "key": "cap_h"
+  },
+  {
+   "font": "CMR",
+   "char": "I",
+   "key": "cap_i"
+  },
+  {
+   "font": "CMMI",
+   "char": "I",
+   "key": "cap_i"
+  },
+  {
+   "font": "CMR",
+   "char": "J",
+   "key": "cap_j"
+  },
+  {
+   "font": "CMMI",
+   "char": "J",
+   "key": "cap_j"
+  },
+  {
+   "font": "CMR",
+   "char": "K",
+   "key": "cap_k"
+  },
+  {
+   "font": "CMMI",
+   "char": "K",
+   "key": "cap_k"
+  },
+  {
+   "font": "CMR",
+   "char": "L",
+   "key": "cap_l"
+  },
+  {
+   "font": "CMMI",
+   "char": "L",
+   "key": "cap_l"
+  },
+  {
+   "font": "CMR",
+   "char": "M",
+   "key": "cap_m"
+  },
+  {
+   "font": "CMMI",
+   "char": "M",
+   "key": "cap_m"
+  },
+  {
+   "font": "CMR",
+   "char": "N",
+   "key": "cap_n"
+  },
+  {
+   "font": "CMMI",
+   "char": "N",
+   "key": "cap_n"
+  },
+  {
+   "font": "CMR",
+   "char": "O",
+   "key": "cap_o"
+  },
+  {
+   "font": "CMMI",
+   "char": "O",
+   "key": "cap_o"
+  },
+  {
+   "font": "CMR",
+   "char": "P",
+   "key": "cap_p"
+  },
+  {
+   "font": "CMMI",
+   "char": "P",
+   "key": "cap_p"
+  },
+  {
+   "font": "CMR",
+   "char": "Q",
+   "key": "cap_q"
+  },
+  {
+   "font": "CMMI",
+   "char": "Q",
+   "key": "cap_q"
+  },
+  {
+   "font": "CMR",
+   "char": "R",
+   "key": "cap_r"
+  },
+  {
+   "font": "CMMI",
+   "char": "R",
+   "key": "cap_r"
+  },
+  {
+   "font": "CMR",
+   "char": "S",
+   "key": "cap_s"
+  },
+  {
+   "font": "CMMI",
+   "char": "S",
+   "key": "cap_s"
+  },
+  {
+   "font": "CMR",
+   "char": "T",
+   "key": "cap_t"
+  },
+  {
+   "font": "CMMI",
+   "char": "T",
+   "key": "cap_t"
+  },
+  {
+   "font": "CMR",
+   "char": "U",
+   "key": "cap_u"
+  },
+  {
+   "font": "CMMI",
+   "char": "U",
+   "key": "cap_u"
+  },
+  {
+   "font": "CMR",
+   "char": "V",
+   "key": "cap_v"
+  },
+  {
+   "font": "CMMI",
+   "char": "V",
+   "key": "cap_v"
+  },
+  {
+   "font": "CMR",
+   "char": "W",
+   "key": "cap_w"
+  },
+  {
+   "font": "CMMI",
+   "char": "W",
+   "key": "cap_w"
+  },
+  {
+   "font": "CMR",
+   "char": "X",
+   "key": "cap_x"
+  },
+  {
+   "font": "CMMI",
+   "char": "X",
+   "key": "cap_x"
+  },
+  {
+   "font": "CMR",
+   "char": "Y",
+   "key": "cap_y"
+  },
+  {
+   "font": "CMMI",
+   "char": "Y",
+   "key": "cap_y"
+  },
+  {
+   "font": "CMR",
+   "char": "Z",
+   "key": "cap_z"
+  },
+  {
+   "font": "CMMI",
+   "char": "Z",
+   "key": "cap_z"
+  },
+  {
+   "font": "CMR",
+   "char": "0",
+   "key": "digit_0"
+  },
+  {
+   "font": "CMR",
+   "char": "1",
+   "key": "digit_1"
+  },
+  {
+   "font": "CMR",
+   "char": "2",
+   "key": "digit_2"
+  },
+  {
+   "font": "CMR",
+   "char": "3",
+   "key": "digit_3"
+  },
+  {
+   "font": "CMR",
+   "char": "4",
+   "key": "digit_4"
+  },
+  {
+   "font": "CMR",
+   "char": "5",
+   "key": "digit_5"
+  },
+  {
+   "font": "CMR",
+   "char": "6",
+   "key": "digit_6"
+  },
+  {
+   "font": "CMR",
+   "char": "7",
+   "key": "digit_7"
+  },
+  {
+   "font": "CMR",
+   "char": "8",
+   "key": "digit_8"
+  },
+  {
+   "font": "CMR",
+   "char": "9",
+   "key": "digit_9"
+  },
+  {
+   "font": "CMR",
+   "char": ",",
+   "key": "comma"
+  },
+  {
+   "font": "CMR",
+   "char": ".",
+   "key": "period"
+  },
+  {
+   "font": "CMR",
+   "char": "/",
+   "key": "slash"
+  },
+  {
+   "font": "CMMI",
+   "char": ",",
+   "key": "comma"
+  },
+  {
+   "font": "CMMI",
+   "char": ".",
+   "key": "period"
+  },
+  {
+   "font": "CMMI",
+   "char": "/",
+   "key": "slash"
+  },
+  {
+   "font": "CMR",
+   "char": "+",
+   "key": "plus"
+  },
+  {
+   "font": "CMR",
+   "char": "=",
+   "key": "equals"
+  },
+  {
+   "font": "CMR",
+   "char": "(",
+   "key": "lparen"
+  },
+  {
+   "font": "CMR",
+   "char": ")",
+   "key": "rparen"
+  },
+  {
+   "font": "CMR",
+   "char": "[",
+   "key": "lbracket"
+  },
+  {
+   "font": "CMR",
+   "char": "]",
+   "key": "rbracket"
+  },
+  {
+   "font": "CMR",
+   "char": "’",
+   "key": "prime"
+  },
+  {
+   "font": "CMR",
+   "char": "-",
+   "key": "minus"
+  },
+  {
+   "font": "CMR",
+   "char": "<",
+   "key": "lt"
+  },
+  {
+   "font": "CMR",
+   "char": ">",
+   "key": "gt"
+  },
+  {
+   "font": "CMR",
+   "char": "|",
+   "key": "vbar"
+  },
+  {
+   "font": "CMR",
+   "char": ":",
+   "key": "colon"
+  },
+  {
+   "font": "CMR",
+   "char": ";",
+   "key": "semicolon"
+  },
+  {
+   "font": "CMSY",
+   "char": "·",
+   "key": "cdot"
+  },
+  {
+   "font": "CMSY",
+   "char": "→",
+   "key": "to"
+  },
+  {
+   "font": "CMSY",
+   "char": "∈",
+   "key": "in"
+  },
+  {
+   "font": "CMSY",
+   "char": "−",
+   "key": "minus"
+  },
+  {
+   "font": "CMSY",
+   "char": "√",
+   "key": "sqrt",
+   "stretch": "vertical",
+   "anchor": "topright"
+  },
+  {
+   "font": "CMSY",
+   "char": "∞",
+   "key": "infty"
+  },
+  {
+   "font": "CMSY",
+   "char": "×",
+   "key": "times"
+  },
+  {
+   "font": "CMSY",
+   "char": "≤",
+   "key": "leq"
+  },
+  {
+   "font": "CMSY",
+   "char": "≥",
+   "key": "geq"
+  },
+  {
+   "font": "CMMI",
+   "char": "∂",
+   "key": "partial"
+  },
+  {
+   "font": "CMMI",
+   "char": "π",
+   "key": "pi"
+  },
+  {
+   "font": "CMMI",
+   "char": "⃗",
+   "key": "vec",
+   "role": "accent"
+  },
+  {
+   "font": "MSBM",
+   "char": "R",
+   "key": "bb_r"
+  },
+  {
+   "font": "CMEX",
+   "char": "(",
+   "key": "lparen_tall",
+   "stretch": "vertical"
+  },
+  {
+   "font": "CMEX",
+   "char": ")",
+   "key": "rparen_tall",
+   "stretch": "vertical"
+  },
+  {
+   "font": "CMEX",
+   "char": "[",
+   "key": "lbracket_tall",
+   "stretch": "vertical"
+  },
+  {
+   "font": "CMEX",
+   "char": "]",
+   "key": "rbracket_tall",
+   "stretch": "vertical"
+  },
+  {
+   "font": "CMEX",
+   "char": "{",
+   "key": "lbrace_tall",
+   "stretch": "vertical"
+  },
+  {
+   "font": "CMEX",
+   "char": "}",
+   "key": "rbrace_tall",
+   "stretch": "vertical"
+  },
+  {
+   "font": "CMEX",
+   "char": "⃓",
+   "key": "vbar_tall",
+   "stretch": "vertical"
+  },
+  {
+   "font": "CMEX",
+   "char": "⎡",
+   "key": "lbracket_tall",
+   "stretch": "vertical",
+   "role": "piece_top"
+  },
+  {
+   "font": "CMEX",
+   "char": "⎣",
+   "key": "lbracket_tall",
+   "stretch": "vertical",
+   "role": "piece_bottom"
+  },
+  {
+   "font": "CMEX",
+   "char": "⎤",
+   "key": "rbracket_tall",
+   "stretch": "vertical",
+   "role": "piece_top"
+  },
+  {
+   "font": "CMEX",
+   "char": "⎦",
+   "key": "rbracket_tall",
+   "stretch": "vertical",
+   "role": "piece_bottom"
+  },
+  {
+   "font": "CMEX",
+   "char": "√",
+   "key": "sqrt",
+   "stretch": "vertical",
+   "anchor": "topright"
+  },
+  {
+   "font": "CMEX",
+   "char": "∫",
+   "key": "int",
+   "stretch": "vertical",
+   "pad": 1.5
+  },
+  {
+   "font": "CMEX",
+   "char": "∑",
+   "key": "sum",
+   "stretch": "vertical"
+  },
+  {
+   "font": "CMEX",
+   "char": "∏",
+   "key": "prod",
+   "stretch": "vertical"
+  }
+ ]
+}

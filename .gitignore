@@ -1,0 +1,7 @@
+build/
+sheets/
+scans/
+debug/
+*.pyc
+__pycache__/
+samples/
