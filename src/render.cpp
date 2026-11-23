@@ -39,6 +39,7 @@ struct Sample {                                  // one handwritten glyph image
 using Library = std::map<std::string, std::vector<Sample>>;
 
 struct Glyph { std::string key; double x, y, size, adv; bool stretch; double ix0, iy0, ix1, iy1; std::string anchor; };
+static double TEXT_EM = 100;                      // px: em of ordinary handwriting (from digits), for stroke-consistent stretching
 static double XSCALE = 1.0;                       // --xscale: widen/narrow ordinary glyphs
 struct Line  { double x0, y0, x1, y1, t; };
 struct Page  { int n = 0; double w = 0, h = 0; std::vector<Glyph> glyphs; std::vector<Line> lines; };
@@ -139,6 +140,37 @@ static void stamp(Canvas& c, const Sample& s, double ax, double ay, double dx, d
         }
 }
 
+// Stretch a sample to height H (px) WITHOUT thickening its strokes: the top and bottom
+// `capf` fractions keep text scale `sc`; only the middle stretches. If H is shorter than
+// the sample's natural (text-scale) height, scale it down uniformly instead.
+// (ax_s = sample x that lands on dest x ax_d; `top` = dest y of the top edge.)
+static void stamp_tall(Canvas& c, const Sample& s, double ax_s, double ax_d, double top, double H,
+                       double sx, double sc, double capf) {
+    double ch = s.h, nat = ch * sc;
+    bool nine = H > nat * 1.05;
+    double capd = capf * ch * sc, ms = nine ? (H - 2 * capd) / ((1 - 2 * capf) * ch) : 1, suni = H / ch;
+    double x0 = ax_d - ax_s * sx, x1 = ax_d + (s.w - ax_s) * sx;
+    int X0 = std::max(0, (int)std::floor(x0) - 1), X1 = std::min(c.w - 1, (int)std::ceil(x1) + 1);
+    int Y0 = std::max(0, (int)std::floor(top) - 1), Y1 = std::min(c.h - 1, (int)std::ceil(top + H) + 1);
+    int k = std::clamp((int)std::ceil(1.0 / std::min(sx, nine ? std::min(sc, ms) : suni)), 1, 6);
+    for (int y = Y0; y <= Y1; y++)
+        for (int x = X0; x <= X1; x++) {
+            float acc = 0;
+            for (int j = 0; j < k; j++)
+                for (int i = 0; i < k; i++) {
+                    double t = y + (j + 0.5) / k - top;
+                    if (t < 0 || t > H) continue;
+                    double py = !nine ? t / suni
+                              : t < capd ? t / sc
+                              : t > H - capd ? (1 - capf) * ch + (t - (H - capd)) / sc
+                              : capf * ch + (t - capd) / ms;
+                    acc += bilinear(s, ax_s + (x + (i + 0.5) / k - ax_d) / sx - 0.5, py - 0.5);
+                }
+            float a = acc / (k * k) * PEN_OPACITY;
+            if (a > 0) { float& d = c.d[(size_t)y * c.w + x]; d = 1 - (1 - d) * (1 - a); }
+        }
+}
+
 static void fill_rect(Canvas& c, double x0, double y0, double x1, double y1) {
     for (int y = std::max(0, (int)y0); y <= std::min(c.h - 1, (int)y1); y++)
         for (int x = std::max(0, (int)x0); x <= std::min(c.w - 1, (int)x1); x++) c.d[(size_t)y * c.w + x] = 1.f;
@@ -186,13 +218,12 @@ static void draw_glyph(Canvas& c, const Glyph& g, const Library& lib, double S, 
     double rot = U(rng) * 1.5 * PI / 180, jit = 1 + 0.04 * U(rng);
     if (g.stretch) {                                              // fit sample to measured ink box
         double W = (g.ix1 - g.ix0) * S, H = (g.iy1 - g.iy0) * S;
-        double sy = H / s.h * jit;
-        if (g.anchor == "topright") {                                         // radical: keep proportions, pin top-right end to the bar
-            stamp(c, s, s.w, 0, g.ix1 * S, g.iy0 * S, sy, sy, rot);
-            return;
-        }
-        double sx = std::clamp(W / s.w, 0.5 * sy, 2.0 * sy);
-        stamp(c, s, s.w / 2.0, s.h / 2.0, (g.ix0 + g.ix1) / 2 * S, (g.iy0 + g.iy1) / 2 * S, sx, sy, rot);
+        double sc = g.size * S / TEXT_EM * jit;                   // TEXT scale: keeps stroke width equal to body text
+        double sx = std::clamp(W / s.w, 0.7 * sc, 1.6 * sc);
+        if (g.anchor == "topright")                               // radical: pin top-right end to the bar
+            stamp_tall(c, s, s.w, g.ix1 * S, g.iy0 * S, H, sx, sc, 0.3);
+        else
+            stamp_tall(c, s, s.w / 2.0, (g.ix0 + g.ix1) / 2 * S, g.iy0 * S, H, sx, sc, 0.3);
     } else {                                                      // size by em, sit on the baseline
         double sc = g.size * S / s.em * jit;
         double adv = g.adv > 0 ? g.adv : 0.25 * g.size;           // zero-width accents: nudge right
@@ -219,6 +250,9 @@ int main(int argc, char** argv) {
         else if (std::string(argv[i]) == "--xscale") XSCALE = atof(argv[i + 1]);
     }
     Library lib = load_library(argv[2]);
+    { double sum = 0; int n = 0;                                  // text em = average em of the digit samples
+      for (auto& kv : lib) if (kv.first.rfind("digit_", 0) == 0) for (auto& sm : kv.second) { sum += sm.em; n++; }
+      if (n) TEXT_EM = sum / n; }
     std::vector<Page> pages = load_items(argv[1]);
     std::mt19937 rng(seed);
     std::map<std::string, int> missing;

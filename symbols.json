@@ -2755,6 +2755,34 @@
    "char": "⇔",
    "key": "iff",
    "anchor": "fitw"
+  },
+  {
+   "font": "CMEX",
+   "char": "p",
+   "key": "sqrt",
+   "stretch": "vertical",
+   "anchor": "topright"
+  },
+  {
+   "font": "CMEX",
+   "char": "q",
+   "key": "sqrt",
+   "stretch": "vertical",
+   "anchor": "topright"
+  },
+  {
+   "font": "CMEX",
+   "char": "r",
+   "key": "sqrt",
+   "stretch": "vertical",
+   "anchor": "topright"
+  },
+  {
+   "font": "CMEX",
+   "char": "s",
+   "key": "sqrt",
+   "stretch": "vertical",
+   "anchor": "topright"
   }
  ]
 }

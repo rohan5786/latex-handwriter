@@ -29,12 +29,12 @@ def family(font):
     return re.sub(r"\d+$", "", font)   # CMR10 -> CMR
 
 
-def ink_box(img, ppp, x0, x1, yc, half, pad=0.6, thr=160):
+def ink_box(img, ppp, x0, x1, ya, yb, pad=0.6, thr=160):
     """Bounding box (pt) of the largest ink blob in the column [x0-pad, x1+pad]
-    within +-half of yc. A big delimiter is one connected stroke, so the largest
+    between ya and yb (pt). A big delimiter is one connected stroke, so the largest
     (tallest) blob is the glyph even if neighbors poke into the column."""
     X0, X1 = max(int((x0 - pad) * ppp), 0), int((x1 + pad) * ppp) + 1
-    Y0, Y1 = max(int((yc - half) * ppp), 0), min(int((yc + half) * ppp) + 1, img.shape[0])
+    Y0, Y1 = max(int(ya * ppp), 0), min(int(yb * ppp) + 1, img.shape[0])
     if X1 <= X0 or Y1 <= Y0:
         return None
     bw = (img[Y0:Y1, X0:X1] < thr).astype(np.uint8)
@@ -91,7 +91,12 @@ def merge_composites(glyphs, fams):
 def extract_page(page, fmap, dpi, missing):
     ppp = dpi / 72
     pix = page.get_pixmap(dpi=dpi, colorspace=pymupdf.csGRAY)
-    img = np.frombuffer(pix.samples, np.uint8).reshape(pix.h, pix.w)
+    img = np.frombuffer(pix.samples, np.uint8).reshape(pix.h, pix.w).copy()
+    # Erase vertical rules (\\boxed borders, determinant bars...) before measuring: a 30pt
+    # border running through a glyph's column would otherwise be mistaken for the glyph.
+    for x0_, y0_, x1_, y1_, t_ in page_lines(page):
+        if abs(x1_ - x0_) < 0.2 * abs(y1_ - y0_) and abs(y1_ - y0_) > 4:
+            cv2.line(img, (int(x0_ * ppp), int(y0_ * ppp)), (int(x1_ * ppp), int(y1_ * ppp)), 255, int((t_ + 1.0) * ppp))
 
     glyphs, fams = [], {}
     for b in page.get_text("rawdict")["blocks"]:
@@ -119,7 +124,8 @@ def extract_page(page, fmap, dpi, missing):
                             g["ink"] = (g["x"], g["y"] - top * s["size"], g["x"] + max(g["adv"], 0.3 * s["size"]), g["y"] + bot * s["size"])
                         elif m.get("stretch") == "vertical":
                             g["stretch"] = 1
-                            g["ink"] = ink_box(img, ppp, x0, x1, g["y"], 3.5 * s["size"], m.get("pad", 0.6))
+                            up, down = m.get("win", [0.4, 3.5])      # CM delimiters/radicals hang BELOW their origin
+                            g["ink"] = ink_box(img, ppp, x0, x1, g["y"] - up * s["size"], g["y"] + down * s["size"], m.get("pad", 0.6))
                             if g["ink"] is None:
                                 g["stretch"] = 0
                     glyphs.append(g)
