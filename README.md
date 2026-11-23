@@ -14,7 +14,7 @@ See tools/README.md. `symbols.json` lists every symbol and how PDF fonts map to 
 
 ## 2. Handwrite a PDF
     tools/handwrite.sh paper.pdf out.pdf [samples_dir] [seed]
-Symbols with no samples are drawn as black boxes --- looks identical to `$\blackbox$` in LaTeX --- and listed on stderr. That list is all of your to-be sampled characters.
+Symbols with no samples are drawn as black boxes --- looks identical to `$\blackbox$` in LaTeX (so similar in appearance that I seriously do not recommend you sampling `$\blackbox$`) --- and listed on stderr (that then becomes your list of to-be sampled characters).
 Different seeds give different "takes". Extra renderer flags: `RENDER_ARGS="--xscale 1.1" tools/handwrite.sh ...`
 (`--xscale` widens ordinary glyphs: raise it if letters look gappy, lower it if they collide).
 
